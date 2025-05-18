@@ -7,7 +7,7 @@ const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const [error, setError] = useState({});
-    console.log(location);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const formData =new FormData(e.target);

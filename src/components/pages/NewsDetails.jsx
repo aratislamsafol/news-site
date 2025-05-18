@@ -14,7 +14,6 @@ const NewsDetails = () => {
         setNews(newsDetails);
     },[id, allData])
 
-    console.log(news.title)
     return (
         <div>
             <header>

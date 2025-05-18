@@ -4,8 +4,8 @@ import {AuthContext} from '../../provider/AuthProvider';
 
 
 const Register = () => {
-    const {createNewUser, user, setUser, updateUserProfile}= useContext(AuthContext);
-    console.log(user);
+    const {createNewUser, setUser, updateUserProfile}= useContext(AuthContext);
+
     const [error, setError] = useState({});
     const navigate = useNavigate();
     const handleSubmit = (e) => {
@@ -30,8 +30,8 @@ const Register = () => {
             })
             .catch(err=>console.log(err.code))
         })
-        .catch(err => {
-            console.log("Error :",err.code, err.message);
+        .catch({
+            // console.log("Error :",err.code, err.message);
         })
 
 
