@@ -3,28 +3,18 @@ import { useState } from "react";
 import { FaRegStar, FaStar,FaEye  } from "react-icons/fa";
 import { IoBookmarkOutline , IoShareSocialOutline  } from "react-icons/io5";
 import Rating from 'react-rating';
+import { Link } from "react-router-dom";
 
 const NewsCard = ({ news }) => {
-    const [ read, setRead ] = useState(false);
     const {
         title,
         author,
         thumbnail_url,
         total_view,
         rating,
-        tags,
-        others,
-        published_date,
         details,
     } = news;
 
-    const handleClick = () => {
-        setRead(!read);
-    }
-
-    const ratingChanged = (newRating) => {
-        console.log(newRating);
-    };
     return (
         <div className="mb-4 border-2 border-gray-100 rounded-lg">
             {/* card header */}
@@ -49,16 +39,10 @@ const NewsCard = ({ news }) => {
                 <div className="mt-2">
                     <img src={thumbnail_url} className="rounded-lg w-full object-cover max-h-[262px]" alt={title} />
                 </div>
-                {!read ?  
-                <div>
-                    <p className="my-2 text-gray-500">{details.slice(0,400).concat("...")}</p>
-                    <button type="button" onClick={handleClick} className="text-amber-500">Read More</button>
-                </div> :
-                <div>
-                    <p className="my-2 text-gray-500">{details}</p>
-                    <button type="button" onClick={handleClick} className="text-amber-500">Read Less</button>
-                </div>
-                }
+                {details.slice(0,400).concat("...")}
+                <Link to={`/news/${news.id}`} className="text-amber-500">Read More
+                </Link> 
+            
             </div>
             {/* card footer */}
             <div className="flex justify-between items-center p-2">

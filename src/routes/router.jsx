@@ -2,6 +2,11 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 import HomeLayout from "../layouts/HomeLayout";
 import Loader from "../components/utlis/Loader";
 import CategoryNews from "../components/CategoryNews";
+import AuthLayout from "../layouts/AuthLayout";
+import Login from "../components/pages/Login";
+import Register from "../components/pages/Register";
+import NewsDetails from "../components/pages/NewsDetails";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -20,12 +25,27 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: "/news",
-    element: <div>News Layout</div>,
+    path: "/news/:id",
+    element: <PrivateRoute><NewsDetails /></PrivateRoute>,
+    loader: Loader('/data/news.json')
   },
   {
-    path: "/auth",
-    element: <div>Login</div>,
+    path: "auth",
+    element: <AuthLayout></AuthLayout>,
+    children: [
+      {
+        path: "/auth/login",
+        element: <Login />
+      },
+       {
+        path: "register",
+        element: <Register/>
+      }
+    ]
+  },
+    {
+    path: "*",
+    element: <div>Error</div>,
   },
 ]);
 

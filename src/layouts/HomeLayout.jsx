@@ -15,7 +15,7 @@ export default function HomeLayout() {
           <LatestNews />
         </section>
       </header>
-      <section className="w-11/12 mx-auto mt-2">
+      <section className="w-11/12 mx-auto mt-2 sticky top-0 bg-white p-2">
         <Navbar></Navbar>
       </section>
       <main className="w-11/12 mx-auto pt-5 grid md:grid-cols-12 gap-3">

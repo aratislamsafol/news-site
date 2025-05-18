@@ -11,7 +11,7 @@ const LeftContent = () => {
         .then(data =>setCategory(data))
     }, []);
     return (
-        <div>
+        <div className="">
             <div className="flex items-center font-semibold gap-1">
                 <h2 className="">All Category</h2>
                 <h2>({category.length})</h2>
